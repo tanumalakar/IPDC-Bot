@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPDC Finance - Digital Assistance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-orange: #F37021;
+      --deep-navy: #0A192F;
+      --navy-dark: #060D17;
+      --white: #FFFFFF;
+      --text-muted: #94A3B8;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at 85% 15%, rgba(243, 112, 33, 0.18), transparent 40%),
+                  radial-gradient(circle at 10% 80%, rgba(30, 58, 138, 0.4), transparent 50%),
+                  linear-gradient(135deg, var(--navy-dark) 0%, var(--deep-navy) 100%);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    header {
+      background: rgba(10, 25, 47, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 0.9rem 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .brand-text {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+
+    .brand-logo-wing {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    /* Right Controls */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.35rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: all 0.25s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--primary-orange);
+      color: var(--white);
+    }
+
+    /* Hero Section */
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4.5rem 1.5rem;
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.4rem 1.2rem;
+      background: rgba(243, 112, 33, 0.12);
+      border: 1px solid rgba(243, 112, 33, 0.3);
+      color: #FFA366;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary-orange);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--primary-orange);
+    }
+
+    h1 {
+      font-size: 3rem;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--white);
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, #FFFFFF 0%, #FFA366 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.lead-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2.75rem;
+      max-width: 650px;
+      margin-inline: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      text-align: left;
+    }
+
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      padding: 1.6rem;
+      border-radius: 14px;
+      border: 1px solid var(--glass-border);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(243, 112, 33, 0.5);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 2.1rem; }
+      p.lead-text { font-size: 1rem; }
+      .brand-text { font-size: 1.5rem; }
+      .brand-logo-wing { height: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="brand-container">
+      <span class="brand-text">IPDC</span>
+      <svg class="brand-logo-wing" viewBox="0 0 160 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ipdcMagenta" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF4181" />
+            <stop offset="100%" stop-color="#D80064" />
+          </linearGradient>
+        </defs>
+        <path d="M5 50 C 45 42, 60 20, 68 15 C 60 25, 40 45, 5 50 Z" fill="url(#ipdcMagenta)" opacity="0.95" />
+        <path d="M12 48 C 55 38, 85 10, 105 5 C 90 20, 50 45, 12 48 Z" fill="url(#ipdcMagenta)" />
+        <path d="M35 44 C 75 32, 115 8, 145 2 C 130 14, 80 38, 35 44 Z" fill="url(#ipdcMagenta)" />
+      </svg>
+    </a>
+    
+    <div class="lang-switcher">
+      <button id="btn-bn" class="lang-btn active">বাংলা</button>
+      <button id="btn-en" class="lang-btn">English</button>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="hero-content">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span id="badge-text">২৪/৭ ডিজিটাল অ্যাসিস্ট্যান্ট</span>
+      </div>
+      
+      <h1 id="hero-title">সহজ ও দ্রুত <span>ফাইন্যান্সিয়াল সল্যুশন</span></h1>
+      <p class="lead-text" id="hero-desc">
+        IPDC-এর পার্সোনাল লোন, ডিপোজিট স্কিম কিংবা যেকোনো সেবার দ্রুত তথ্য পেতে আমাদের ভার্চুয়াল অ্যাসিস্ট্যান্টকে প্রশ্ন করুন।
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3 id="card1-title">হোম ও অটো লোন</h3>
+          <p id="card1-desc">সহজ কিস্তির সুবিধা ও সর্বনিম্ন প্রসেসিং সময়ে দ্রুত ডেলিভারি।</p>
+        </div>
+        <div class="card">
+          <h3 id="card2-title">SME ফাইন্যান্সিং</h3>
+          <p id="card2-desc">আপনার ব্যবসার টেকসই সম্প্রসারণে সহায়ক পার্টনারশিপ সুবিধা।</p>
+        </div>
+        <div class="card">
+          <h3 id="card3-title">ডিপোজিট স্কিম</h3>
+          <p id="card3-desc">নিরাপদ সঞ্চয় ও আকর্ষণীয় প্রফিট রিটার্নের সুযোগ।</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p id="footer-text">&copy; IPDC Finance PLC. সর্বস্বত্ব সংরক্ষিত।</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btnBn = document.getElementById("btn-bn");
+      const btnEn = document.getElementById("btn-en");
+
+      const texts = {
+        bn: {
+          badge: "২৪/৭ ডিজিটাল অ্যাসিস্ট্যান্ট",
+          title: "সহজ ও দ্রুত <span>ফাইন্যান্সিয়াল সল্যুশন</span>",
+          desc: "IPDC-এর পার্সোনাল লোন, ডিপোজিট স্কিম কিংবা যেকোনো সেবার দ্রুত তথ্য পেতে আমাদের ভার্চুয়াল অ্যাসিস্ট্যান্টকে প্রশ্ন করুন।",
+          c1Title: "হোম ও অটো লোন",
+          c1Desc: "সহজ কিস্তির সুবিধা ও সর্বনিম্ন প্রসেসিং সময়ে দ্রুত ডেলিভারি।",
+          c2Title: "SME ফাইন্যান্সিং",
+          c2Desc: "আপনার ব্যবসার টেকসই সম্প্রসারণে সহায়ক পার্টনারশিপ সুবিধা।",
+          c3Title: "ডিপোজিট স্কিম",
+          c3Desc: "নিরাপদ সঞ্চয় ও আকর্ষণীয় প্রফিট রিটার্নের সুযোগ।",
+          footer: "© IPDC Finance PLC. সর্বস্বত্ব সংরক্ষিত।"
+        },
+        en: {
+          badge: "24/7 Digital Assistant",
+          title: "Fast & Effortless <span>Financial Solutions</span>",
+          desc: "Ask our virtual assistant about IPDC personal loans, deposit schemes, or any customer service queries instantly.",
+          c1Title: "Home & Auto Loan",
+          c1Desc: "Flexible EMI options and rapid loan approval processing.",
+          c2Title: "SME Financing",
+          c2Desc: "Reliable funding support to scale and empower your business.",
+          c3Title: "Deposit Schemes",
+          c3Desc: "Safe capital growth with highly attractive profit returns.",
+          footer: "© IPDC Finance PLC. All rights reserved."
+        }
+      };
+
+      function updateLanguage(lang) {
+        if (lang === "bn") {
+          btnBn.classList.add("active");
+          btnEn.classList.remove("active");
+        } else {
+          btnEn.classList.add("active");
+          btnBn.classList.remove("active");
+        }
+
+        document.getElementById("badge-text").textContent = texts[lang].badge;
+        document.getElementById("hero-title").innerHTML = texts[lang].title;
+        document.getElementById("hero-desc").textContent = texts[lang].desc;
+        document.getElementById("card1-title").textContent = texts[lang].c1Title;
+        document.getElementById("card1-desc").textContent = texts[lang].c1Desc;
+        document.getElementById("card2-title").textContent = texts[lang].c2Title;
+        document.getElementById("card2-desc").textContent = texts[lang].c2Desc;
+        document.getElementById("card3-title").textContent = texts[lang].c3Title;
+        document.getElementById("card3-desc").textContent = texts[lang].c3Desc;
+        document.getElementById("footer-text").textContent = texts[lang].footer;
+      }
+
+      btnBn.addEventListener("click", () => updateLanguage("bn"));
+      btnEn.addEventListener("click", () => updateLanguage("en"));
+    });
+  </script>
+
+
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="ZZEhRoiyeVD0B1ifnIFJq";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
+
+  </body>
+</html>
