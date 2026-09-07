@@ -208,7 +208,23 @@
     }
   </style>
 </head>
-<body>
+<style>
+ #content { display: none; }
+</style>
+<script>
+ function checkPassword() {
+ var password = prompt("ipdcbot");
+ if (password === "ipdcbot") {
+ document.getElementById("content").style.display = "block";
+ } else {
+ alert("ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।");
+ checkPassword();
+ }
+ }
+ window.onload = checkPassword;
+</script>
+<div id="content">
+ <body>
 
   <header>
     <a href="#" class="brand-container">
@@ -330,4 +346,5 @@
 
 
   </body>
+</div>
 </html>
