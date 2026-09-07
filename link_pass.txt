@@ -1,0 +1,18 @@
+<style>
+ #content { display: none; }
+</style>
+<script>
+ function checkPassword() {
+ var password = prompt("Type your pass:");
+ if (password === "আপনার_পাসওয়ার্ড") {
+ document.getElementById("content").style.display = "block";
+ } else {
+ alert("Wrong ! Try again");
+ checkPassword();
+ }
+ }
+ window.onload = checkPassword;
+</script>
+<div id="content">
+ <!-- আপনার মূল ওয়েবসাইটের কন্টেন্ট এখানে রাখুন -->
+</div>
